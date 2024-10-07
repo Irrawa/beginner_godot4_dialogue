@@ -1,0 +1,46 @@
+keys,en
+"[[Hi|Hello|Howdy]], this is some dialogue.","[[Hi|Hello|Howdy]], this is some dialogue."
+Here are some choices.,Here are some choices.
+First one,First one
+You picked the first one.,You picked the first one.
+Second one,Second one
+You picked the second one.,You picked the second one.
+Start again,Start again
+End the conversation,End the conversation
+For more information see the online documentation.,For more information see the online documentation.
+测试对话引擎。,测试对话引擎。
+对话中用变量代替部分字符串,对话中用变量代替部分字符串
+未音已就绪，开始毁灭。,未音已就绪，开始毁灭。
+终止那个指令，{{summoned_creature_name}},终止那个指令，{{summoned_creature_name}}
+对话中调用运行主界面的函数,对话中调用运行主界面的函数
+喵~,喵~
+[do do_something()]BOOOOM！,[do do_something()]BOOOOM！
+对话中调用全局函数,对话中调用全局函数
+现在的全局参数为{{str(GlobalData.attr)}},现在的全局参数为{{str(GlobalData.attr)}}
+全局参数已硬传递为{{str(GlobalData.attr)}},全局参数已硬传递为{{str(GlobalData.attr)}}
+全局参数已通过设置函数改为{{str(GlobalData.attr)}},全局参数已通过设置函数改为{{str(GlobalData.attr)}}
+字体动作特效,字体动作特效
+[shake rate=20 level-10]喵呜呜呜呜呜~[/shake],[shake rate=20 level-10]喵呜呜呜呜呜~[/shake]
+[wave]嗷呜呜呜呜呜呜呜~[/wave],[wave]嗷呜呜呜呜呜呜呜~[/wave]
+速度控制,速度控制
+慢点说话~,慢点说话~
+好吧，那[speed=0.1]我就说得慢一点。,好吧，那[speed=0.1]我就说得慢一点。
+等一下！,等一下！
+.[wait=0.5].[wait=0.5].,.[wait=0.5].[wait=0.5].
+[next=1]自动下一句话的时间为，1秒：,[next=1]自动下一句话的时间为，1秒：
+[next=1]3,[next=1]3
+[next=1]2,[next=1]2
+[next=1]1,[next=1]1
+OK！,OK！
+准备爆破！,准备爆破！
+基于属性判断的动态选项,基于属性判断的动态选项
+妙：创世之魂…看来，必须做出选择呢……,妙：创世之魂…看来，必须做出选择呢……
+伊洛瓦：妙，相信我，我来自遥远山谷的守御结界一定可以阻挡维嘉的叛军，为猫城撑起自己的天地。,伊洛瓦：妙，相信我，我来自遥远山谷的守御结界一定可以阻挡维嘉的叛军，为猫城撑起自己的天地。
+罗德：只有彻底消灭维嘉，猫城才能得到安稳。而只有我，面对她时才有胜算，这你们心里和我一样清楚。,罗德：只有彻底消灭维嘉，猫城才能得到安稳。而只有我，面对她时才有胜算，这你们心里和我一样清楚。
+选择伊洛瓦。伊洛瓦将升格并继续陪在你身边，为你搭建猫城守御结界（伊洛瓦亲密度：{{GlobalData.irrawa_intimacy}}，需要70以上）。[if GlobalData.irrawa_intimacy > 90],选择伊洛瓦。伊洛瓦将升格并继续陪在你身边，为你搭建猫城守御结界（伊洛瓦亲密度：{{GlobalData.irrawa_intimacy}}，需要70以上）。[if GlobalData.irrawa_intimacy > 90]
+选择罗德。升格后的罗德不会继续陪在你身边，而是出征虚空要塞，与维嘉的部队做个了断。（罗德亲密度：{{GlobalData.irrawa_intimacy}}，需要70以上）。[if GlobalData.lord_intimacy > 90],选择罗德。升格后的罗德不会继续陪在你身边，而是出征虚空要塞，与维嘉的部队做个了断。（罗德亲密度：{{GlobalData.irrawa_intimacy}}，需要70以上）。[if GlobalData.lord_intimacy > 90]
+暂时离开。,暂时离开。
+你们两个，我全都要！（对自己使用升格之力。）[if GlobalData.irrawa_intimacy >= 100 and GlobalData.lord_intimacy >= 100],你们两个，我全都要！（对自己使用升格之力。）[if GlobalData.irrawa_intimacy >= 100 and GlobalData.lord_intimacy >= 100]
+来自其它dialogue文件的测试，包括使用<在走到END后跳转回当前位置的测试,来自其它dialogue文件的测试，包括使用<在走到END后跳转回当前位置的测试
+继续测试,继续测试
+结束测试,结束测试

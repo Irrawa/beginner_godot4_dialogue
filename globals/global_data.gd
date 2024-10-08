@@ -2,8 +2,8 @@ extends Node
 
 var attr: int = 10
 
-var irrawa_intimacy = 80
-var lord_intimacy = 70
+var irrawa_intimacy = 100
+var lord_intimacy = 100
 
 func show_attr() -> void:
 	print(attr)

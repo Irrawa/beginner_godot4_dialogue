@@ -2,13 +2,24 @@ import "res://dialogues/test_dialogue.dialogue" as dialogues_test_dialogue
 
 ~ start
 
+妙: 伊洛，今天开心吗？
+伊洛: 开心！
+妙: 你想学习一下如何使用Dialogue Manager吗？
+- 想
+	妙: 那我们开始吧！
+- 不想
+	=> separator
+
 妙: 测试对话引擎。
 - 对话中用变量代替部分字符串
-	{{summoned_creature_name}}: 未音已就绪，开始毁灭。
+	{{summoned_creature_name}}: {{summoned_creature_name}}已就绪，开始毁灭。
 	妙: 终止那个指令，{{summoned_creature_name}}
+	
 - 对话中调用运行主界面的函数
-	妙: 喵~
-	妙: [do do_something()]BOOOOM！
+	妙: 运行主界面是Coco，那么Coco做一些事情吧！
+	Coco: [do do_something()]BOOOOM！
+	do_something()执行了一些指令，这里在控制台输出了一些文字。写剧本的时候，可以描述一下具体会发生什么，妙会把这些发生的事情做到逻辑里。
+	
 - 对话中调用全局函数
 	set GlobalData.attr = 10
 	未音: 现在的全局参数为{{str(GlobalData.attr)}}
@@ -21,7 +32,7 @@ import "res://dialogues/test_dialogue.dialogue" as dialogues_test_dialogue
 
 - 字体动作特效
 	妙: [shake rate=20 level-10]喵呜呜呜呜呜~[/shake]
-	伊洛: [wave]嗷呜呜呜呜呜呜呜~[/wave]
+	叶月: [wave]嗷呜呜呜呜呜呜呜~[/wave]
 
 - 速度控制
 	妙: 慢点说话~
@@ -33,16 +44,30 @@ import "res://dialogues/test_dialogue.dialogue" as dialogues_test_dialogue
 	伊洛: [next=1]2
 	伊洛: [next=1]1
 	伊洛: OK！
-	妙: 准备爆破！
+
+- 随机对话
+	妙: 你今天开心了吗？
+	伊洛: [[开心了呀！|不开心！|还可以！]]
+	妙: 那你昨天开心了吗？
+	伊洛: [[开心了呀！|不开心！|还可以！]]
+	妙: 明天会开心吗？
+	%5 伊洛: 会开心哦！ 
+	%3 伊洛: 不知道呀！
+	%2 伊洛: 不会开心…… 
 
 - 基于属性判断的动态选项
-	妙：创世之魂…看来，必须做出选择呢……
-	伊洛瓦：妙，相信我，我来自遥远山谷的守御结界一定可以阻挡维嘉的叛军，为猫城撑起自己的天地。
-	罗德：只有彻底消灭维嘉，猫城才能得到安稳。而只有我，面对她时才有胜算，这你们心里和我一样清楚。
-	- 选择伊洛瓦。伊洛瓦将升格并继续陪在你身边，为你搭建猫城守御结界（伊洛瓦亲密度：{{GlobalData.irrawa_intimacy}}，需要70以上）。[if GlobalData.irrawa_intimacy > 90]
-	- 选择罗德。升格后的罗德不会继续陪在你身边，而是出征虚空要塞，与维嘉的部队做个了断。（罗德亲密度：{{GlobalData.irrawa_intimacy}}，需要70以上）。[if GlobalData.lord_intimacy > 90]
+	猫城仅存的三人终于找到了创世之魂……
+	妙: 创世之魂…看来，必须做出选择呢……
+	伊洛瓦: 妙，相信我，我来自遥远山谷的守御结界一定可以阻挡维嘉的叛军，为猫城撑起自己的天地。+
+	罗德: 只有彻底消灭维嘉，猫城才能得到安稳。而只有我，面对她时才有胜算，这你们心里和我一样清楚。
+	- 选择伊洛瓦。伊洛瓦将升格并继续陪在你身边，为你搭建猫城守御结界（伊洛瓦亲密度：{{GlobalData.irrawa_intimacy}}，需要70以上）。 [if GlobalData.irrawa_intimacy >= 70]
+		妙: 直接进攻维嘉实在是太冒险了，抱歉，罗德，妙不能接受你的建议。伊洛瓦，我们一起走过了很多，很荣幸今次也可以与你共度风雨。
+	- 选择罗德。升格后的罗德不会继续陪在你身边，而是出征虚空要塞，与维嘉的部队做个了断。（罗德亲密度：{{GlobalData.irrawa_intimacy}}，需要70以上）。 [if GlobalData.lord_intimacy >= 70]
+		妙: 猫城已经经历了太多的浮沉，是时候和维嘉做个了断了。罗德，妙将这仅存的希望寄托于你，请不要让妙失望。
 	- 暂时离开。
-	- 你们两个，我全都要！（对自己使用升格之力。）[if GlobalData.irrawa_intimacy >= 100 and GlobalData.lord_intimacy >= 100]
+		妙: 现在还不是决定的时候……
+	- 你们两个，我全都要！（对自己使用升格之力。） [if GlobalData.irrawa_intimacy >= 100 and GlobalData.lord_intimacy >= 100]
+		妙: 猫城由妙建立，重建猫城的这份责任，也理应妙来承担。
 
 - 来自其它dialogue文件的测试，包括使用<在走到END后跳转回当前位置的测试
 	=>< dialogues_test_dialogue/this_is_a_node_title

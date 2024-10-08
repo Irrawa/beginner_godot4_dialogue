@@ -44,7 +44,6 @@ func do_something() -> void:
 	print("Coco do something...Like ignite a bomb.")
 	print(attr)
 
-
 func _physics_process(_delta: float) -> void:
 	if input_vector.length() > 0:
 		velocity = input_vector * SPEED
